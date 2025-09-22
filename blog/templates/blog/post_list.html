@@ -1,19 +1,41 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="pl">
 
 <head>
     <meta charset="UTF-8">
     <title>Blog dla programistów</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 
 <body>
-    <h1>Witam na stronie bloga!</h1>
-    {% for post in posts %}
-    <h2><a href="">{{ post.title }}</a></h2>
-    <em>{{ post.text|linebreaksbr }}</em>
-    <p>Autor: {{ post.author }}</p>
-    <p>Data: {{ post.published_date }}</p>
-    {% endfor %}
+    <div class="page-header">
+        <h1>Witam na stronie bloga dla programistów</h1>
+        <h2>Blog o programowaniu</h2>
+    </div>
+    <div class="content container">
+        <div class="row">
+            {% for post in posts %}
+            <div class="post">
+                <div class='date'>
+                    <p>Opublikowany: {{ post.published_date }}</p>
+                </div>
+                <h2><a href="">{{ post.title }}</a></h2>
+                <em>{{ post.text|linebreaksbr }}</em>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+    <div class="footer">
+
+    </div>
 </body>
 
 </html>
